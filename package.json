@@ -1,0 +1,35 @@
+{
+	"name": "broken-npm-path",
+	"version": "1.0.0",
+	"description": "A path to the mock file that simulates an incorrectly installed npm CLI",
+	"repository": "shinnn/broken-npm-path",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"license": "ISC",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "node test.js"
+	},
+	"files": [
+		"index.js",
+		"lib/node_modules/npm/bin/index.js",
+		"lib/node_modules/npm/package.json"
+	],
+	"keywords": [
+		"mock",
+		"fixture",
+		"simulate",
+		"npm",
+		"cli",
+		"testing",
+		"edge-case"
+	],
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^6.0.0",
+		"eslint": "^5.4.0",
+		"isexe": "^2.0.0",
+		"tape": "^4.9.1"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node"
+	}
+}
