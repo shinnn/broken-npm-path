@@ -1,7 +1,7 @@
 # broken-npm-path
 
 [![npm version](https://img.shields.io/npm/v/broken-npm-path.svg)](https://www.npmjs.com/package/broken-npm-path)
-[![Build Status](https://travis-ci.com/shinnn/broken-npm-path.svg?branch=master)](https://travis-ci.com/shinnn/broken-npm-path)
+[![Github Actions](https://action-badges.now.sh/shinnn/broken-npm-path)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/shinnn/broken-npm-path)
 
 A path to the mock file that simulates an incorrectly installed [npm CLI](https://github.com/npm/cli)
 
@@ -14,9 +14,9 @@ const execFile = promisify(childProcess.execFile);
 
 (async () => {
 	await execFile('node', [process.env.npm_execpath, '--version']);
-	//=> {stdout: '6.4.0\n', stderr: ''}
+	//=> {stdout: '6.9.0\n', stderr: ''}
 
-	process.env.npm_execpath = brokenNpmMock.bin;
+	process.env.npm_execpath = brokenNpmPath;
 
 	await execFile('node', [process.env.npm_execpath, '--version']);
 	// throws an Error: npm CLI is not correctly installed.
@@ -27,7 +27,7 @@ This module is useful for the situation where a user tries to test any libraries
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install broken-npm-path
@@ -47,4 +47,4 @@ A path to the intentionally [broken npm CLI entry point](https://github.com/shin
 
 ## License
 
-[ISC License](./LICENSE) © 2018 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Watanabe Shinnosuke
